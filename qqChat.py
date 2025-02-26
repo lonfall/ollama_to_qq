@@ -30,17 +30,6 @@ class MyClient(botpy.Client):
                                           content=msg_back,
                                           msg_id=message.id)
 
-    async def on_at_message_create(self, message: Message):
-        _log.info(message.author.avatar)
-        # 获取消息内容
-        content = message.content
-
-        # 假设你想对特定的内容做出响应
-        if "hello" in content.lower():
-            await self.api.post_message(channel_id=message.channel_id,
-                                        content="Hello back!",
-                                        msg_id=message.id)
-
 
 # 设置意图（Intents），这里仅监听公共频道的消息
 intents = botpy.Intents(public_messages=True)
